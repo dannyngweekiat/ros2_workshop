@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<robot name="vehicle_blue"
+  xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <link name='vehicle_blue/chassis'>
+    <visual name='visual'>
+      <origin xyz="0 0 0.325" rpy="0 0 0"/>
+      <geometry>
+        <box size="2.01142 1 0.568726"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="vehicle_blue/lidar_link/gpu_lidar">
+    <visual name="visual">
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name='left_wheel'>
+    <visual name='visual'>
+      <geometry>
+        <sphere radius="0.3"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name='right_wheel'>
+    <visual name='visual'>
+      <geometry>
+        <sphere radius="0.3"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name='caster'>
+    <visual name='visual'>
+      <geometry>
+        <sphere radius="0.2"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="lidar_sensor_joint" type="fixed">
+    <parent link="vehicle_blue/chassis"/>
+    <child link="vehicle_blue/lidar_link/gpu_lidar"/>
+    <origin xyz="0 0 0.5" rpy="0 0 0"/>
+  </joint>
+  <joint name="left_wheel_joint" type="fixed">
+    <parent link="vehicle_blue/chassis"/>
+    <child link="left_wheel"/>
+    <origin xyz="0.554283 0.625029 0.3" rpy="-1.5707 0 0"/>
+  </joint>
+  <joint name="right_wheel_joint" type="fixed">
+    <parent link="vehicle_blue/chassis"/>
+    <child link="right_wheel"/>
+    <origin xyz="0.554282 -0.625029 0.3" rpy="-1.5707 0 0"/>
+  </joint>
+  <joint name="caster_wheel" type="fixed">
+    <parent link="vehicle_blue/chassis"/>
+    <child link="caster"/>
+    <origin xyz="-0.957138 -0 0.2" rpy="0 0 0"/>
+  </joint>
+
+</robot>
