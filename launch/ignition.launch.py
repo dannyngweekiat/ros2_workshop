@@ -43,7 +43,7 @@ def generate_launch_description():
         launch_arguments=[
             (
                 "gz_args",
-                [sdf_file],
+                [sdf_file, " -v 4", " -r"],
             )
         ],
     )
