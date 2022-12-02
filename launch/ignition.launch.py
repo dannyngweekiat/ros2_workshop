@@ -42,8 +42,8 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([ign_gazebo_launch]),
         launch_arguments=[
             (
-                "ign_args",
-                [sdf_file, " -v 4", " -r"],
+                "gz_args",
+                [sdf_file],
             )
         ],
     )
